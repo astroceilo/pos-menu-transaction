@@ -1,6 +1,5 @@
 # pos-menu-transaction
 
-
 # 🧾 Aplikasi Kasir POS (Laravel + Inertia + React)
 
 Aplikasi Kasir berbasis Laravel 12 + Inertia.js + React + Vite. Digunakan untuk transaksi makanan, dengan fitur tambah ke keranjang, proses pembayaran, dan cetak struk.
