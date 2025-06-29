@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, router, usePage } from '@inertiajs/react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Megaphone, Plus, Trash2 } from 'lucide-react';
+import { Megaphone, Plus, Trash2, SquarePen } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import {
   Table,
@@ -136,39 +136,46 @@ export default function Index() {
                         </TableCell>
                         <TableCell className="text-center">{rupiah(food.price)}</TableCell>
                         <TableCell className="text-center">
-                          <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                              <Button
-                                className="cursor-pointer rounded-lg bg-red-600 p-2 text-white hover:opacity-90 hover:bg-red-400"
-                                onClick={() => setFoodToDelete(food.id)}
-                              >
-                                <Trash2 size={18} />
+                          <div className="flex justify-center gap-2">
+                            <Link href={route('foods.edit', food.slug)}>
+                              <Button className="cursor-pointer rounded-lg bg-blue-600 p-2 text-white hover:opacity-90 hover:bg-blue-400">
+                                <SquarePen size={16} />
                               </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle>Yakin ingin menghapus menu {food.name}?</AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  Menu yang dihapus tidak bisa dikembalikan.
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel className="cursor-pointer">Batal</AlertDialogCancel>
-                                <AlertDialogAction
-                                  className="cursor-pointer"
-                                  onClick={() => {
-                                    if (foodToDelete) {
-                                      router.delete(route('foods.destroy', foodToDelete), {
-                                        preserveScroll: true,
-                                      });
-                                    }
-                                  }}
+                            </Link>
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button
+                                  className="cursor-pointer rounded-lg bg-red-600 p-2 text-white hover:opacity-90 hover:bg-red-400"
+                                  onClick={() => setFoodToDelete(food.id)}
                                 >
-                                  Hapus
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          </AlertDialog>
+                                  <Trash2 size={16} />
+                                </Button>
+                              </AlertDialogTrigger>
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>Yakin ingin menghapus menu {food.name}?</AlertDialogTitle>
+                                  <AlertDialogDescription>
+                                    Menu yang dihapus tidak bisa dikembalikan.
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel className="cursor-pointer">Batal</AlertDialogCancel>
+                                  <AlertDialogAction
+                                    className="cursor-pointer"
+                                    onClick={() => {
+                                      if (foodToDelete) {
+                                        router.delete(route('foods.destroy', foodToDelete), {
+                                          preserveScroll: true,
+                                        });
+                                      }
+                                    }}
+                                  >
+                                    Hapus
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
+                          </div>
                         </TableCell>
 
                       </TableRow>

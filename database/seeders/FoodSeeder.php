@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Food;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -24,19 +25,14 @@ class FoodSeeder extends Seeder
         ];
 
         foreach ($foods as $food) {
-            Food::create($food);
+            // Food::create($food);
+                    
+            Food::create([
+                'name' => $food['name'],
+                'price' => $food['price'],
+                'slug' => Str::slug($food['name']),
+                'thumbnail' => $food['thumbnail']
+            ]);
         }
-
-        // foreach ($foods as $food) {
-        //     Food::factory()->create([
-        //         'name' => $food,
-        //     ]);
-        // }
-
-        // Food::create([
-        //     'name' => 'Sate Ayam',
-        //     'price' => 30000,
-        //     'thumbnail' => '/storage/foods/sate-ayam.jpg',
-        // ]);
     }
 }

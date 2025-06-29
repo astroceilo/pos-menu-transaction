@@ -17,6 +17,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/foods', [FoodController::class, 'index'])->name('foods.index');
     Route::get('/foods/create', [FoodController::class, 'create'])->name('foods.create');
     Route::post('/foods', [FoodController::class, 'store'])->name('foods.store');
+    Route::get('/foods/{food:slug}/edit', [FoodController::class, 'edit'])->name('foods.edit');
+    // Route::put('/foods/{id}', [FoodController::class, 'update'])->name('foods.update');
+    // Route::match(['put', 'patch'], '/foods/{id}', [FoodController::class, 'update'])->name('foods.update');
+    Route::patch('/foods/{food}', [FoodController::class, 'update'])->name('foods.update');
     Route::delete('/foods/{food}', [FoodController::class, 'destroy'])->name('foods.destroy');
 
     Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
