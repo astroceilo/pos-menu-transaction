@@ -66,7 +66,7 @@ export default function Index() {
                             {/* Display Error */}
 
                             {Object.keys(errors).length > 0 && (
-                                <Alert variant="default | destructive" className="mb-2">
+                                <Alert variant="destructive" className="mb-2">
                                     <CircleAlert />
                                     <AlertTitle>Errors!</AlertTitle>
                                     <AlertDescription>
