@@ -82,7 +82,7 @@ export default function Edit() {
             ]);
         }
 
-    }, []);
+    }, [foods.thumbnail, data.price]);
 
     // const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     //     if (e.target.files && e.target.files.length > 0) {
@@ -159,7 +159,7 @@ export default function Edit() {
                                             allowMultiple={false}
                                             credits={false}
                                             server={{
-                                                load: (source, load, error, progress, abort, headers) => {
+                                                load: (source, load, error) => {
                                                     const myRequest = new Request(source);
                                                     fetch(myRequest)
                                                         .then((res) => res.blob())

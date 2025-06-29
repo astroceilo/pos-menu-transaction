@@ -32,7 +32,7 @@ function formatRupiah(angka: string) {
 
 export default function Index() {
 
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, errors, reset } = useForm({
         thumbnail: null as File | null,
         name: '',
         price: ''
