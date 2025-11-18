@@ -1,82 +1,91 @@
-# pos-menu-transaction
+# 🧾 POS Menu Application (Laravel + Inertia + React)
 
-# 🧾 Aplikasi Kasir POS (Laravel + Inertia + React)
-
-Aplikasi Kasir berbasis Laravel 12 + Inertia.js + React + Vite. Digunakan untuk transaksi makanan, dengan fitur tambah ke keranjang, proses pembayaran, dan cetak struk.
-
----
-
-## 🚀 Fitur Utama
-
-- ✅ CRUD Makanan/Menu
-- 🛒 Tambah ke Keranjang
-- ➕➖ Atur Kuantitas
-- 💳 Proses Pembayaran
-- 🧾 Simpan & Cetak Struk
-- 📦 Data Transaksi & Detail Tersimpan ke DB
+A modern Point of Sale (POS) menu system built using Laravel 12, Inertia.js, React, and Vite.
+Designed for food transactions — complete with menu management, cart system, payments, and receipt printing.
 
 ---
 
-## ⚙️ Kebutuhan Sistem
+## 🚀 Features
 
-| Software     | Versi Minimal  |
-|--------------|----------------|
-| PHP          | 8.4            |
-| Composer     | Terinstal      |
-| Node.js      | 22             |
-| NPM/Yarn     | Terinstal      |
-| SQLite / MySQL | Terinstal    |
-| Git          | (opsional)     |
+- ✔️ Manage Food/Menu (CRUD)
+- 🛒 Add to Cart
+- ➕➖ Set Quantity
+- 💸 Process Payment
+- 🧾 Save Transaction + Print Receipt
+- 📦 Store Transaction Details in Database
 
 ---
 
-## 📥 Instalasi
+## 📦 Tech Stack
+
+| Layer	   | Tools                     |
+| Backend  | Laravel 12 (PHP 8.2+)     |
+| Frontend | React + Inertia.js + Vite |
+| Database | MySQL                     |
+
+---
+
+## ⚙️ Requirements
+
+| Software     | Minimum Version          |
+|--------------|--------------------------|
+| PHP          | 8.2+                     |
+| Composer     | 2.5+ (recommended 2.8.x) |
+| Node.js      | 18+                      |
+
+---
+
+## 📥 Installation
 
 ### 1. Clone Project
 
 ```bash
 git clone https://github.com/astroceilo/pos-menu-transaction.git
-cd nama-proyek
+cd pos-menu-transaction
 ```
 
-Atau ekstrak ZIP dan buka foldernya di terminal.
+Or extract the ZIP file manually.
 
-### 2. Install Dependency Laravel
+### 2. Install Backend Dependency (Laravel)
 
 ```bash
 composer install
 ```
 
-### 3. Install Dependency Frontend
+### 3. Install Frontend Dependency (React)
 
 ```bash
 npm install
-# atau
-# yarn install
+# or
+yarn install
 ```
 
-### 4. Setup File Environment
+### 4. Environment Setup
 
+Copy the example environment file:
 ```bash
 cp .env.example .env
+```
+
+Generate the application key:
+```bash
 php artisan key:generate
 ```
 
-### 5. Konfigurasi Database
+### 5. Database Configuration
 
-Contoh menggunakan SQLite:
+Example for MySQL:
 
 ```env
-DB_CONNECTION=sqlite
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pos_menu
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
-Lalu buat file-nya:
-
-```bash
-touch database/database.sqlite
-```
-
-### 6. Migrasi & Seeder (Opsional)
+### 6. Migration (+ Seed Optional)
 
 ```bash
 php artisan migrate
@@ -85,68 +94,67 @@ php artisan db:seed
 
 ---
 
-## ▶️ Menjalankan Aplikasi
+## ▶️ Running the App
 
-### Backend Laravel:
+### Start Laravel backend:
 
 ```bash
 php artisan serve
 ```
 
-### Frontend React + Vite:
+### Start React frontend:
 
 ```bash
 npm run dev
 ```
 
-Buka browser ke:
+### App will be available at:
 
-```
-http://kasir-pos-preview-lazis-task.test
-```
-
----
-
-## 🧾 Cara Transaksi
-
-1. Klik makanan untuk menambah ke keranjang.
-2. Tambah atau kurangi kuantitas dengan tombol + / -.
-3. Klik **Charge** untuk buka dialog pembayaran.
-4. Masukkan nominal uang pembeli.
-5. Klik tombol **Pay** untuk menyimpan transaksi.
-6. Klik **Print Bill** untuk mencetak struk.
+Default URL:
+http://127.0.0.1:8000
 
 ---
 
-## 🖨 Print Struk (Bill)
+## 🧾 Usage (How to Make a Transaction)
 
-Setelah transaksi berhasil:
-
-- Tombol `Print Bill` akan aktif
-- Halaman cetak akan muncul
-- Gunakan `Ctrl + P` untuk mencetak
+1. Click a menu item to add to cart
+2. Adjust quantity with + / −
+3. Press **Charge** to open payment popup
+4. Enter cash amount
+5. Press **Pay** to finish transaction
+6. Press **Print Bill** to print the receipt
 
 ---
 
-## 🏁 Build untuk Produksi (Opsional)
+## 🖨 Printing Receipt
+After payment:
+
+- Print button becomes active
+- The print view opens
+- Use **Ctrl + P** to print
+
+---
+
+## 📦 Build for Production
 
 ```bash
 npm run build
 ```
 
-Aset akan berada di folder `public/build`.
+Generated assets will be stored in: public/build
 
 ---
 
-## 📄 Lisensi
+## 📄 License
 
-Open-source untuk keperluan pembelajaran dan pengembangan internal.
+Open-source for internal learning and development purposes.
 
 ---
 
-## 🙋‍♂️ Author
+## 👤 Author
 
-- **Nama**: Doni Anggara
-- **Tech Stack**: Laravel 12, React, Inertia.js, SQLite
+Doni Anggara
+Tech Stack: Laravel, React, Inertia.js, MySQL
+GitHub: @astroceilo
 
 ---
