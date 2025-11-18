@@ -113,6 +113,18 @@ npm run dev
 Default URL:
 http://127.0.0.1:8000
 
+### Storage Link from public local to public URL:
+
+Move the storage directory to the public directory:
+
+```bash
+cp -r public/foods → storage/app/public/foods
+```
+
+```bash
+php artisan storage:link
+```
+
 ---
 
 ## 🧾 Usage (How to Make a Transaction)

@@ -6,8 +6,6 @@ use App\Models\Food;
 use Inertia\Inertia;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use App\Models\TransactionItem;
-use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {

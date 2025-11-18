@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -131,7 +130,7 @@ export default function Index() {
                         <TableCell>{food.name}</TableCell>
                         <TableCell>
                           <div className="flex justify-center">
-                            {food.thumbnail ? <img src={food.thumbnail} alt={food.name} className="h-12 w-12 object-cover rounded" /> : '-'}
+                            {food?.thumbnail ? <img src={food.thumbnail} alt={food.name} className="h-12 w-12 object-cover rounded" /> : '-'}
                           </div>
                         </TableCell>
                         <TableCell className="text-center">{rupiah(food.price)}</TableCell>
