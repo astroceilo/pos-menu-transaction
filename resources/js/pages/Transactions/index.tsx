@@ -62,7 +62,7 @@ export default function Transaction() {
         setData('items', updatedItems);
     };
 
-    const { foods } = usePage().props as { foods: Food[] };
+    const { foods = [] } = usePage<{ foods: Food[] }>().props;
 
     const handleIncrease = (foodId: number) => {
         const updatedItems = data.items.map((item) => {
